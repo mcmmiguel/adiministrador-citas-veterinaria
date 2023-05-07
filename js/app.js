@@ -10,6 +10,41 @@ const sintomasInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
+class Citas {
+    constructor() {
+        this.citas = [];
+    }
+}
+
+class UI {
+    imprimirAlerta(mensaje, tipo){
+        // Crear div
+        const divMensaje = document.createElement('div');
+        divMensaje.classList.add('text-center', 'alert', 'd-block', 'col-12');
+
+        // Agregar clase en base al tipo Error
+        if(tipo === 'error') {
+            divMensaje.classList.add('alert-danger');
+        } else {
+            divMensaje.classList.add('alert-success');
+        }
+
+        // Mensaje de Error
+        divMensaje.textContent = mensaje;
+
+        // Agregar al DOM
+        document.querySelector('#contenido').insertBefore(divMensaje, document.querySelector('.agregar-cita'));
+
+        // Quitar la alerta después de 3 seg
+        setTimeout(() => {
+            divMensaje.remove();
+        }, 3000);
+    }
+}
+
+const ui = new UI();
+const administrarCitas = new Citas();
+
 // Datos de usuario
 const citaObj = { //Recuerda tener atrbiuto name en el elemento Input con el mismo nombre que las propiedades
     mascota: '',
@@ -30,6 +65,8 @@ function eventListeners(){
     fechaInput.addEventListener('input', datosCita);
     horaInput.addEventListener('input', datosCita);
     sintomasInput.addEventListener('input', datosCita);
+
+    formulario.addEventListener('submit', nuevaCita);
 }
 
 
@@ -37,4 +74,23 @@ function eventListeners(){
 function datosCita(e) {
     citaObj[e.target.name] = e.target.value; //Accedemos a la propiedad con el mismo valor el name del input y le asignamos el valor ingresado
     console.log(citaObj);
+}
+
+// Valida y agrega una nueva cita a la clase de citas
+function nuevaCita(e) {
+    e.preventDefault();
+
+    // Extraer la información del objeto de cita 
+    const {mascota, propietario, telefono, fecha, hora, sintomas} = citaObj;
+
+    // Validar
+    if(mascota === '' || propietario === '' || telefono === '' || fecha === '' || hora === '' || sintomas === ''){
+        ui.imprimirAlerta('Todos los campos son obligatorios', 'error');
+        return;
+    }
+
+
+
+
+
 }
