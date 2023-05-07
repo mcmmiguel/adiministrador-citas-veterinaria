@@ -5,11 +5,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+  background-color: #7E9181;
   min-height: 100%;
   padding-bottom: 5rem;
+  font-family: 'Raleway', sans-serif;
 }
 .titulo {
+  font-family: 'Inter', sans-serif;
   font-weight: bold;
   font-size: 3rem;
   text-transform: uppercase;
@@ -17,6 +19,7 @@ body {
 }
 .container {
     background-color: white;
+    border-radius: 10px;
 }
 header {
   margin-top: 3rem;
@@ -24,6 +27,12 @@ header {
 header h1 {
   color: white;
 }
+
+h2, legend {
+  font-size: 2rem;
+  text-align: center;
+}
+
 .lista-citas .cita {
   border-bottom: 1px solid #e1e1e1;
   padding: 2rem;
@@ -49,4 +58,9 @@ textarea {
 
 svg {
   width: 21px;
+}
+
+.administrar-citas {
+  /* border-left: 2px solid #e1e1e1; */
+  padding-left: 1rem;
 }
