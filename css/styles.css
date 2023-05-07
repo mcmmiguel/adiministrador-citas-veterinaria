@@ -5,7 +5,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #7E9181;
+  background-image: linear-gradient(to right, #C9E4CA 50%, #87BBA2 100%);
+  background-color: #C9E4CA;
   min-height: 100%;
   padding-bottom: 5rem;
   font-family: 'Raleway', sans-serif;
@@ -31,6 +32,24 @@ header h1 {
 h2, legend {
   font-size: 2rem;
   text-align: center;
+}
+
+form {
+  background-color: #3B6064;
+  padding: 1rem;
+  border-radius: .5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+input {
+  padding: 0 .2rem;
+}
+
+.campo {
+  /* background-color: #C9E4CA; */
+  padding: .5rem;
+  border-radius: .4rem;
 }
 
 .lista-citas .cita {
@@ -61,6 +80,5 @@ svg {
 }
 
 .administrar-citas {
-  /* border-left: 2px solid #e1e1e1; */
-  padding-left: 1rem;
+  padding: 1rem;
 }
