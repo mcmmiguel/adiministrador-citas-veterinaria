@@ -97,9 +97,24 @@ function nuevaCita(e) {
     citaObj.id = Date.now();
 
     // Creando una nueva cita 
-    administrarCitas.agregarCita(citaObj);
+    administrarCitas.agregarCita({...citaObj});  //se manda como argumento una copia del objeto para que al agregar nuevas citas no seas todas iguales a esta última
+
+    // Reiniciar el Objeto para la validación
+    reiniciarObjeto();
+
+    // Reiniciar el formulario 
+    formulario.reset();  //Esto no reinicia el objeto, solo los inputs
 
 
+}
 
+function reiniciarObjeto () {
+    citaObj.mascota = '';
+    citaObj.propietario = '';
+    citaObj.telefono = '';
+    citaObj.fecha = '';
+    citaObj.hora = '';
+    citaObj.sintomas = '';
 
+    console.log(citaObj);
 }
